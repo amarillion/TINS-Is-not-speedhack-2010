@@ -12,7 +12,41 @@ from game import Game
 import mysha, render, glyphs
 
 def update():
-   Base.game.ticks += 1
+    game = Base.game
+    
+    game.ticks += 1
+    
+    if game.state != "game": return
+
+    if game.coins and game.coins_collected == game.coins:
+        game.done = True
+    if game.done:
+        return
+   
+    game.tick()
+   
+    lost = False
+    for i, mysha in enumerate(game.myshas):
+        
+        if mysha.dead:
+            mysha.y += 8
+            if mysha.kind == "S": lost = True
+            continue
+
+    if lost: return
+
+    for mysha in game.myshas:
+        if mysha.dead: continue
+        if not game.coding:
+            class Keys: pass
+            k = Keys()
+            k.left = False
+            k.right = False
+            k.up = False
+            mysha.follow_commands(k)
+            mysha.input(k)
+
+        mysha.tick()
 
 def main():
 
@@ -230,38 +264,6 @@ def main():
         
         if game.menu != prevmenu:
             al_play_sample(game.menusounds[game.menu], 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0)
-
-        if game.state != "game": continue
-
-        if game.coins and game.coins_collected == game.coins:
-            game.done = True
-        
-        if game.done:
-            continue
-
-        game.tick()
-
-        lost = False
-        for i, mysha in enumerate(game.myshas):
-            
-            if mysha.dead:
-                mysha.y += 8
-                if mysha.kind == "S": lost = True
-                continue
-        
-        if lost: continue
-
-        for mysha in game.myshas:
-            if mysha.dead: continue
-            k.left = False
-            k.right = False
-            k.up = False
-            if not game.coding:
-                mysha.follow_commands(k)
-
-            mysha.input(k)
-
-            mysha.tick()
 
     al_uninstall_system()
 
