@@ -1,1 +1,1 @@
-g++ *.cpp -o elemsun.exe -ljpgalleg -laldmb -ldumb -lalleg
+g++ *.cpp -o elemsun.exe -ljpgalleg -laldmb -ldumb -lalleg44

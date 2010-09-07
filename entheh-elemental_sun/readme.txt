@@ -41,9 +41,9 @@ for MinGW and other GCC-based systems:
 
 Or equivalently:
 
-  g++ *.cpp -o elemsun.exe -ljpgalleg -laldmb -ldumb -lalleg
+  g++ *.cpp -o elemsun.exe -ljpgalleg -laldmb -ldumb -lalleg44
 
-On Linux you should replace -lalleg with `allegro-config --libs` (including
+On Linux you should replace -lalleg44 with `allegro-config --libs` (including
 the grave accents), and you don't need the .exe extension.
 
 Sorry, there's no makefile or other fancy build system. I used Eclipse for
