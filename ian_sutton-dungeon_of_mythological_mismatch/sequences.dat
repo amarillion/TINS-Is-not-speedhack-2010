@@ -1,0 +1,10 @@
+9
+goody_playerwalk 1 7 10
+baddy_playerwalk 1 8 10
+goody_enemy1 1 9 10
+goody_enemy2 1 10 10
+goody_enemy3 1 11 10
+baddy_enemy1 1 12 10
+baddy_enemy2 1 13 10
+baddy_enemy3 1 14 10
+civilian 1 15 10

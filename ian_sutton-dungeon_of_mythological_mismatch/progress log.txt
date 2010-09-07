@@ -1,0 +1,143 @@
+Friday, September 3rd
+
+14:09 - I've got a few ideas mulling around in my head as to what I'll do with the game. I'm kinda wanting to do something thats reasonably simple so that I can actually get it finished, but also reasonably easy to add to later, if I do happen to finish before time.
+
+I've gotten off to a reasonably flying start. I've got quite a lot of my basic code out of the way in the first hour and a bit. I think maybe I should have gone a bit faster, for instance I don't think it was particularly necessary to add multiple colours to the logging facility etc. But still, I've got about 71 hours left, so it hasn't really been much of an indent into the time and it'll probably come in handy later.
+
+Initialisation code, screen, logging and timing are all out of the way. Currently working on my animation code. Lets just hope I can keep up this pace for the rest of the competition.
+
+
+15:26 - Well, that took longer than I thought it would. Nearly an hour and a half just to do the animation routines. Ah well, its done now. I think maybe I'm worrying a bit too much about the time constraint we've got to do this whole thing in. But I know that some people had frameworks to start off with, so I suppose I'm at a little bit of a disadvantage there, having to do everything from scratch. No matter though, 
+
+Well I've got the basic animation classes sorted anyway, apart fom actually loading the sequence information from a file, but that should take maybe 20 minutes I don't know. I'd better get on with it.
+
+
+17:00 - Yep. It took slightly longer than 20 minutes. I've now got an extremely simple sequence pack loader, where the individual sequences are called by name. Probably gonna be a bit slow as it tests the name each time it needs it, but I'll probably have a play to get round that later.
+
+Now, to actually start implementing something mildly gameplay related.
+
+
+18:08 - I've just spent almost the last hour trying to debug a problem in the timer coding. On resetting a timer to 0 I failed to notice that it was being incremented in a seperate bit of code more or less straight afterwards. All the code which relied on testing when this timer was started (all of the frame entry code basically) was getting skipped.
+
+22:24 - After a couple of hours break, I figure I should probably get a bit more code done before going to bed. Given that I had a couple of beers with my dinner, this could either go really well or really badly.
+
+00:09 - I've finally gotten round to actually putting my game ideas on paper and filled them out a bit. I sort of knew what I was aiming for before, but now I have a solid plan and an actual direction to aim.
+
+Basically I'm going with what is more or less a board game. The original intention was for it to be a bit of on RPG, but I cut back on most of the ideas as clearly there would be nowhere near enough time. Better to get something small pollished off, than not complete something big. I think I've got plans to cover all of the rules. Space constraints could be a bit of an issue though for the audio and graphics rules. I've cut down on the number of graphics I would have needed for me original plan, but you need some variety for a game to be interesting. I'll have to see what I can do.
+
+With regards to the audio rule, I've never even used allegro's audio capabilities and have no idea as to how to best use them whilst conserving space. I guess I'll have to cross that hurdle when I come to it.
+
+I'm quite impressed with myself for todays coding effort. I know that size isn't any measure of how good your code is, but this is already the largest project I've actually worked on. Odd that for a competition where you are supposed to keep things small I have written so much. Not that I will, but if I keep up this pace for the whole weekend (excluding sleeping time), I'll have written... a whole load of code. Hopefully that won't be necessary though.
+
+I've just looked on the TINS website and seen a few other people's creations. I must say, they seem to be moving a lot faster than I have. Now to finish this tile map before bed. And by bed, I mean, coding into the early hours. I think the length of this note implies I'm procrastinating now.
+
+02:47 - I'm thinking bed. I'm sure if I had some coffee I could maybe stay awake for a bit longer. But my brain has turned to mush and I'm makeing silly mistakes in my code and completely forgetting the thread of what I'm doing. Ah well. I actually think things are going reasonably well though. As long as I can pick up this bit of code again tomorrow, I should be well on my way.
+
+I'm currently working on the player interaction code. Basically moving player character, who's particular godly theme has yet to be decided. To abide by the polymorphism rule I'm going to implement two different game routes, one good one evil, so I'm still deciding on what mythology to go with.
+
+For the hand drawn graphics rule I was wanting to implement something a bit like Drawn To Life. So maybe you would have to draw the doors of the maze and things like that. Its perfectly feasible, but a) I don't *really* see what it would add to gameplay and b) it might take a good while to actually implement.
+
+I keep thinking that I only have the one day tomorrow to complete the game, but in reality I have another 2 and a bit days. I think I'm doing reasonably well then. One and a half days to complete the actualy game and then about a day to polish it. 
+
+I just can't stop thinking that perhaps people won't like the gameplay, because its essentially just going to be a dungeons and dragons game as far as I can tell. I just really could not think of anything better to do given the rules. I had some (what I thought were) really good ideas as to gameplay, the only problem was the amount of time available. Ah well, I'm sure if I make it as shiny as possible people will like it.
+
+
+
+Saturday, September 4th
+
+13:26 - Well its been a very good start to the day I think. I've more or less got the maze mechanics down. It actually feels a bit like a game now. Currently you can just wander around a maze, which only has walls floors and the player, but it works, which is the main thing. Now, to add some bad guys.
+
+14:22 - I decided I'd leave the bad guys for a while and instead work on the fog of war map. Going reasonably smoothly for the moment, slight stumbling block as I've found that each individual tile doesn't seem to have any way of finding out where it is in the map. Quick work around I think. I get the feeling I'll be going through about a gallon of coffee today.
+
+14:46 - Odd. The game has now completely stopped running. It won't load at all. Even the logging functionality isn't being booted up. I get the feeling I'll be plowing through a wall of code for a good while. Ah ha, I'm using the logging *before* its been initialised. Damn global variables. Not entirely sure how I can get around this. Guess I'll just have to have run all the initialisation code somewhere else.
+
+15:13 - Well I've sorted out the problem with that initialisation code. Now I'm struggling with the translucency code for the fog of war again. I think instead of all of this I should really be adding some gameplay in. This is polish, its not necessary. But now that I've started it I've got to finish it or other things will inevitably be broken.
+
+15:26 - Right. Sorted. Tiles now have variable translucency. Visited tiles remain semi visible after you've visited them. I'll turn it off for testing everything else, so that I can see whats going on on the screen, but it should just be a matter of turning it back on later. I hope. Thats a problem for tomorrow anyway. Today is supposed to be about adding gameplay.
+
+17:09 - We're coming along nicely now. You actually have something to do in the game. Sure, it's not very much, but its something and it should be relatively easy to add to it. Basically you've got to save/kill (depending on your character) the people to get a score. Now I might finally get round to adding some enemies.
+
+18:22 - I've just realised that, as my tiles were 32x28, I can't actually fit a whole number of tiles onto the screen. For a whole day I hadn't noticed that there was a band of black at the bottom of the scree. Fortunately I'm still only using placeholder graphics or that could have been a complete nightmare. We're all sorted now though, my tiles are now 32x24.
+
+18:47 - I'm looking at the folder containing my code and thinking... thats an awful lot of code, for not very much actual game content. Well at least its reasonably straight forward to add new bits in now I suppose.
+
+19:38 - I was hoping that I would have gotten the bulk of the coding out of the way by this evening, but I'm thinking about it and it is pretty obvious that I really haven't. I'm going to have to make the tile loading process a bit more complex. I'm also going to have to load them from file. I was wanting to do this originally but it was much quicker (at the time) to har code them in. I simply can't get enough information into a big list of numbers. Before I go making a whole editor and things like that though I'll try a quick work around and hope for the best. Heck its supposed to be a bit hacky anyway isn't it.
+
+19:49 - The project is now getting so large that I'm forgetting my way around it and wondering why the hell I put certain code in certain places. This could partly be due to exhaustion, but I think its safe to say I could have done all of this *much* more quickly and succinctly. Its only a 2 day old project but its already spiralled beyond the proportions of anything I've done before.
+
+20:09 - *Finally* got switching between levels sorted out. There were all sorts of problems to do with not remembering the player object and keeping the correct transparencies and things. Anyway, it seems sorted now. Now... those bad guys I've been saying I should put in all day.
+
+
+
+Sunday, September 5th
+
+04:50 - I'm not sure if staying up until this time coding was a good idea or a bad idea. I've gotten a fair amount done though. Enemies actually chase you, albeit stupidly and blunderingly so. I've gotten the hand drawn coding in there and a hand drawn font. I keep track of scores and lives etc. I've made a little tally chart that "hand draws" itself every time you lose / get a life.
+
+Tomorrow is weaponry. Whats the point in a dungeon game if you can't attack/defend yourself. I've got a couple of ideas as to what the weapons should be and how to implement them. And then its building the levels, this may well be the hardest part of all. Its got to be fun. Again, theres no point in a game if it isn't fun.
+
+Then finally I've got to add in the non-placeholder graphics and add some shine. I've got my girlfriends drawing tablet that I can use, but given that I really cannot draw, its only a slightly better situation.
+
+But thats all for. Only 31 hours of competition left, but a maximum of only about 12 hours actual working time. It'll be a close call I imagine. For now though, sleep.
+
+08:29 - I couldn't sleep, so I imagine today is going to be absolutely horrible. First very large mug of coffee has already been drunk. So far today I've made some slight improvements to the crayon line code and added in a grid over the tiles. Its supposed to look hand drawn, but I'm not really sure if I like it. Meh, if I decide it has to go, it should be pretty straight forward to take out.
+
+I've still not entirely decided on the theme I want to go with. I was thinking maybe the tiles could be sort of crossword layouts, but crosswords aren't generally hand drawn.
+
+11:32 - I've got a bit more done. I'm currently fighting with a blood splattering effect. Just trying to get it to run fast enough to actually be useful.
+
+12:10 - The blood spattering is more or less sorted. Its not quite as I'd like it, but thats just prettification so I'll leave it for now and do content. You still can't fight back. I have no actuall levels. I haven't done any actuall graphics, they're all still just placeholder (and obviously so). None of the menus. Not done the speech rule. Not done the show some code rule. Only partly done the polymorphism rule. This is gonna be a close call.
+
+15:26 - Finally I'm on to doing the graphics. I'm just waiting for the windows laptop to beet past the annoying load of popup windows telling me to run various parts of Norton and... for some reason my internet provider taking over the desktop. I do *not* recommend virgin media.
+
+15:54 - I do not like photoshop. Everything seems to be just so awkwardly placed. Once you've clicked on something to see what it is, you get dragged into this game of trying to undo things that you don't remember even asking it to do. I haven't even managed to do a single picture yet.
+
+16:05 - I've decided that instead of making the characters look like actual animating characters, I'm going to go with single board tokens for them. Mostly becuase I simply don't have the time to animate them all and also because the top down views I had, looked pretty attrocious.
+
+17:45 - This hand drawn graphics rule is killing me. It takes forever. I've done the enemies for when you're the baddy and the two player characters. Still got to do enemies for when you're the goody and tiles. Oh, I've done the civilian as well, but I kinda cheated a bit for that one to save time.
+
+18:45 - Phewph, finally got those blimmin graphics done. I do wish I hadn't chosen to do a tiled game, you have to draw everything really tiny and yet still recognisable. Ah well, we got there in the end. Just trying to copy the files over to this computer now. Inevitably windows will make this as awkward as possible.
+
+20:23 - Into the final straight. I've got all the graphics (bar one or two that I forgot but they should take two seconds, its just a trap door and a crate of lightning bolts. Now it should just be a matter of piecing the whole thing together. Why do I get the feeling it *won't* be that straight forward. I hope I can finish this tonight and not spend all night sat at the computer again. My blood is pure coffee now.
+
+21:12 - Wahey. Now all the graphics and things are in, it actually feels like a game. Sure its a very very short game and its virtually impossible to lose. And there are some fairly major bugs still to be worked out. Like, dying gives you a whole set of ammo. And I've still got to implement one or two of the rules. Apart from that though, it's good. I think. Innevitably it'll be the dullest game imaginable, but heck, its the first game I'll ever have completed.
+
+22:42 - Its not especially late, but given that, I haven't slept in about 36 hours I'm utterly shattered. I'm just adding in the polymorphism bit now. Basically the player can choose between two different functions, which the enemies will use to hunt you with. I've also added a radius of caring to the enemies, so that they won't start chasing you until you get near to them. This means I *might*, big might, turn the fog of war back on. I dunno, I'm not sure how much it actually adds to the game play.
+
+People have already submitted their games by now, I saw a couple on the TINS website when I had a quick look earlier. Christ, I wish I was submitting it now. I've still got to actually make the levels. There simply won't be time in the morning to do everything, so it looks like its going to be yet another long night.  On a side note, I checked how much space I was currently taking up in the zip file and I reccon I've got enough room for 2 wavs. It would have been nice to get some music in as well, but a) theres only 13 hours left in the competition and b) theres nowhere near enough room.
+
+13 hours. Christ, I better get on
+
+22:54 - I don't know why I didn't think of this before. Instead of hand creating all the maps and having a small amount, I'll simply randomly generate them. Easy peasey. Sort of. I've never actually written a maze generator before. It can't be that hard can it? All of the examples I've found so far don't actually have tiles as walls, they just have a barrier between tiles. I don't know how much more difficult this will make things.
+
+23:07 - I think I've found the perfect thing for the job. A tiled maze generation algorithm script. The only problem is its written in action script and I've never even looked at action script before so this could take a while to decipher.
+
+23:10 - Having said that, theres a link to a php version, which is essentially c with dollar signs as far as I could ever tell. Heres the link: http://www.emanueleferonato.com/2008/12/06/perfect-maze-generation-tile-based-version/. Only thing is I don't really want a "perfect" maze, or you could easily get cornered, so I'll do something at the end of the generation to poke some holes in the walls and that sort of thing. I also don't want walls at the side of the maps as well, so I suppose that'll give a bit more room as well. Assuming I can get it running that is.
+
+23:55 - This is taking longer than I thought it would. Apparently php is much less picky than c++;
+
+
+
+
+
+
+Monday, September 5th
+
+00:11 - Finally got the blummin' thing to work. Its now generating wall maps. Now to turn that into tiles. THis should be the easy bit. I'm happy now, its all coming together nicely.
+
+02:17 - We're getting there. Slowly but surely. Maps are getting produced, just got to populate them with enemies and so on. Then I've just got to do the menu screen, which *should* be a doddle.
+
+2:44 - Arrghh, theres somewhat of a show stopping bug somewhere in the new tilemap code that seems to be able to pounce at any time. It can run fine for a good while, or keel over immediately. I'm thinking something else is keeping access to the generated maps and is deleting the memory or something.
+
+2:55 - Hmm, I just watched the system monitor as I went through the game and it would seem that theres quite a large memory leak going on somewhere. Second all nighter in a row then.
+
+3:02 - Well, the main memory leak has been fixed, I was recreating the grid bitmap every time it loaded a new level. Unfortunately it hasn't solved the problem of the broken generator.
+
+3:11 - Huzzah, I think I've cracked it. There was a problem with the signage on the checks so when I was checking if it would go out of bounds the darn thing was lying to me. Why can't we all just play nice and always use signed integers.
+
+3:53 - Oh Gaawwwwd. Just when you think its all nearly over and your getting close to finishing. Its the blummin' unsigned integers again, I didn't think that it'd be a problem when I went and scattered them through the code at the start. I didn't think about having to take anything bigger than themselves at the start. I dont mean to try and make them less than 0, I just mean x = unsigned - something bigger. Its obvious now that it wouldn't work but its everywhere now. Bugs upon bugs upon bugs.
+
+4:32 - Found it. At last. That error has apparently been in there since I started the project, I just hadn't notcied it. There was a rounding error in my vector code. Negative numbers we being rounded too far towards zero. All sorted now though I hope.
+
+4:58 - Wow. I think thats it. The main game anyway. I've just gotta put the menus in and we're off. Oh and those sound effects. Hmm.
+
+8:55 - Thats me done. I'm completely dead, my eyes are all blurry and everything. The game isn't completely finished, but I am.

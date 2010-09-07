@@ -1,0 +1,250 @@
+--Sprite 0
+8
+--Animation 0
+angel idle
+1
+--Frame 0
+data/gfx/player/angel-b.png
+50
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+1
+1
+--Animation 0
+die
+1
+--Frame 0
+data/gfx/player/die.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+1
+1
+--Animation 0
+fly
+4
+--Frame 0
+data/gfx/player/angel-a.png
+50
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+7
+1
+--Frame 0
+data/gfx/player/angel-b.png
+50
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+7
+1
+--Frame 0
+data/gfx/player/angel-c.png
+40
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+7
+1
+--Frame 0
+data/gfx/player/angel-b.png
+50
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+7
+1
+--Animation 0
+idle
+1
+--Frame 0
+data/gfx/player/idle.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+1
+1
+--Animation 0
+jump
+1
+--Frame 0
+data/gfx/player/jump.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+1
+1
+--Animation 0
+to angel
+2
+--Frame 0
+data/gfx/player/orbh.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+5
+1
+--Frame 0
+data/gfx/player/orba.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+5
+1
+--Animation 0
+to human
+2
+--Frame 0
+data/gfx/player/orba.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+5
+1
+--Frame 0
+data/gfx/player/orbh.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+5
+1
+--Animation 0
+walk
+2
+--Frame 0
+data/gfx/player/idle.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+10
+1
+--Frame 0
+data/gfx/player/walk.png
+32
+32
+0
+0
+3.26681e-307
+0
+1
+1
+0
+0
+0
+0
+10
+1

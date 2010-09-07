@@ -1,0 +1,23 @@
+CC = gcc
+CFLAGS = -O2 -fomit-frame-pointer -ffast-math -funroll-loops -Wall -mwindows -DT3F_COMPANY="\"t3-i\""
+RELEASE_LIBS = -lallegro_image.dll -lallegro_font.dll -lallegro_primitives.dll -lallegro_audio.dll -lallegro_acodec.dll -lallegro_dialog.dll -lallegro.dll
+LIBS = $(RELEASE_LIBS)
+
+T3F_OFILES = t3f/t3f.o t3f/music.o t3f/3d.o t3f/animation.o t3f/tilemap.o t3f/collision.o t3f/controller.o t3f/sound.o t3f/sprite_sheet.o t3f/hyperlink.o
+TINS_OFILES = main.o cinema.o logo.o title.o game.o player.o enemy.o projectile.o powerup.o
+TINS_EXENAME = ../bin/the_devil
+CE_OFILES = cinema_editor.o cinema.o
+CE_EXENAME = ../bin/cinema_editor
+
+all : $(TINS_EXENAME) $(CE_EXENAME)
+
+$(TINS_EXENAME) : $(T3F_OFILES) $(TINS_OFILES)
+	$(CC) $(T3F_OFILES) $(TINS_OFILES) $(CFLAGS) $(LIBS) -o $(TINS_EXENAME)
+
+$(CE_EXENAME) : $(T3F_OFILES) $(CE_OFILES)
+	$(CC) $(T3F_OFILES) $(CE_OFILES) $(CFLAGS) $(LIBS) -o $(CE_EXENAME)
+
+clean:
+	@del *.o
+	@del t3f\*.o
+	@echo Cleanup complete!

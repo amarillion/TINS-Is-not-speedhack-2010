@@ -1,0 +1,239 @@
+
+class BOARD
+{
+  public:
+    BOARD(int w, int h) : width(w), height(h), grid(NULL)
+    {
+        grid = new ELEMENTS[height * width];
+    }
+    ~BOARD()
+    {
+        delete [] grid;
+    }
+
+    ELEMENTS *at(int x, int y)
+    {
+        return &grid[y * width + x];
+    }
+
+  private:
+    int width, height;
+    ELEMENTS *grid;
+};
+
+/*
+    if (x >= max_x)
+    {
+        x -= max_x;
+    }
+    if (y >= max_y)
+    {
+        y -= max_y;
+    }
+*/
+/*
+    if (x < 0)
+    {
+        if (d == W)
+            x += max_x;
+        else if (d == NW)
+        {
+            x = y - 1;
+            y = MAX_Y;
+        }
+        else if (d == SW)
+        {
+            x = y - 1;
+            y = 0;
+        }
+    }
+    if (y < 0)
+    {
+        if (d == N)
+            y += max_y;
+        else if (d == NE)
+        {
+            y = x - 1;
+            x = 0;
+        }
+        else if (d == NW)
+        {
+            y = x - 1;
+            x = MAX_X;
+        }
+    }
+*/
+
+/*
+        int tx = x;
+        int ty = y;
+*/
+
+//    TILE t(POSITION(100, 200));
+//    t.shove(t.pos, W, false);
+//        t.logic();
+//        t.render(buffer);
+
+
+
+
+
+
+            //data.shove_all();
+            /*
+            for(int y = 0; y < data.height(); y++)
+            {
+                for(int x = 0; x < data.width(); x++)
+                {
+                    POSITION m;
+                    grid_to_screen(POSITION(x, y), m);
+                    counted_ptr<TILE> &out = data.at(POSITION(x,y));
+                    if (out.get() != NULL)
+                        out->shove(m, false);
+                }
+            }
+            */
+
+
+
+
+//    void shove_all();
+//    void compact();
+/*
+void BOARD::shove_all()
+{
+    data.shove_all();
+}
+
+void BOARD::compact()
+{
+    data.compact();
+    data.shove_all();
+}
+*/
+
+
+/*
+            if (bjb->data.at_destinations())
+            {
+                for (std::list<counted_ptr<TILE> >::iterator it = nuked.begin(); it != nuked.end(); it++)
+                {
+                    (*it)->ungrid();
+                    manager.add(*it);
+                }
+                nuked.clear();
+            }
+*/
+
+
+
+
+
+
+        return;
+/*
+
+        POSITION to = selection;
+        to.move(direction);
+
+        GRID_DATA temp = data;
+        std::swap(temp.at(selection), temp.at(to));
+        int nukable_count = temp.find_nukable();
+        for(int c = 0
+
+
+        if (nukable_count > 0)
+        {
+            std::swap(data.at(selection), data.at(to));
+            data.shove_all();
+        }
+        else
+        {
+            counted_ptr<TILE> &one = temp.at(selection);
+            counted_ptr<TILE> &two = temp.at(to);
+            POSITION one_p, two_p;
+            data.grid_to_screen(selection, one_p);
+            data.grid_to_screen(to, two_p);
+            one->shove(one_p, true);
+            two->shove(two_p, true);
+        }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    for(int y = 0; y < height(); y++)
+    {
+        counted_ptr<TILE> &t = at(POSITION(width() - 1, y));
+        if (t.get() != NULL)
+        {
+//            tt.pos =  = t->pos;
+//                allegro_message("%d > %d", tt.pos.x, end_width.x);
+//                allegro_message("overlap");
+
+
+        }
+    }
+    for(int x = 0; x < width(); x++)
+    {
+    }
+//    p.x -= (TILE_W / 2);
+//    p.y -= (TILE_W / 2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    POSITION r = pos;
+    int col = 0;
+    switch(e)
+    {
+      case WIND:
+        col = makecol(128, 128, 255);
+        break;
+      case WATER:
+        col = makecol(0, 0, 255);
+        break;
+      case EARTH:
+        col = makecol(139, 69, 19);
+        break;
+      case FIRE:
+        col = makecol(255, 0, 0);
+        break;
+      case HEART:
+        col = makecol(255, 105, 180);
+        break;
+    }
+    rectfill(buffer, r.x + 100, r.y + 100, r.x + TILE_W - 1 + 100, r.y + TILE_W - 1 + 100, col);
+*/
+
+
+
+
+/*
+    manager.logic();
+    manager.render(buffer);
+    manager.prune();
+*/

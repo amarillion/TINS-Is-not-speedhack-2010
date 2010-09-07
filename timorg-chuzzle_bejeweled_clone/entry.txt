@@ -1,0 +1,55 @@
+The 5 W’s
+Who:  Timorg (anthonytcassidy@hotmail.com)
+What: Tins 2010
+When: 3rd-6th September 2010
+Where: Melbourne, Australia
+Why: Its TINS, how could I not compete
+
+
+Compiling:
+You need allegro 4.2 or later.
+To compile under gcc:
+	g++ -otins.exe *.cpp -lalleg
+To compile under visual studio:
+	Create a project add all the source files, add alleg.lib to the additional dependencies and hopefully press compile.
+
+
+Rules:
+Genre rule #90 - Deities & Demigods:
+	The player is a god who is looking after a village, the people need an equal measure of elements, if they get too much of one or not enough of another, a natural disaster would occur.
+Earth – too much gives an earth quake, too little and something bad would happen (not sure what)
+Water – too much gives flooding, too little gives a drought.
+Wind – too much is a tornado, too little the windmills will not work
+Fire – too little and they freeze, too much and they get bush fires
+Love – too little they die out, too much and they over populate and starve
+
+Artistical rule #132 - Hand drawn
+	I was going to take the lazy way out just have hand drawn art, I was going to have a hand drawn font, etc, etc.
+
+Artistical rule #105 - Samples of human(-like) voice
+	I was going to record my voice saying "darble", then whenever a player talks to god, the text they say was going to be vocalised as "darble darble darble darble darble" all in different pitches and/or speeds
+
+
+Technical rule #69 – Polymorphism
+	I have implemented a base class for the board, it controls getting the user clicks and all the appropriate tests, then when it is time to apply the move, it calls a purely virtual logic function, that in the instanced child class is implemented. The only function implemented by both chuzzle and bejewelled is the logic, everything else is in the parent superclass.
+
+
+Technical rule #34 - View Source
+	Where the player was going to be selecting which game mode to play, they were going to see the source code for the logic function that runs it.
+
+
+Code Reuse:
+	I used code from my entry in the last TINS competition, the BASE_OBJECT and OBJECT_MANAGER classes.
+
+
+Thoughts:
+	I tried to pick something simple, but I ran into some interesting bugs and misunderstanding of what was going on in my code, (not enough sleep lately evidently.) I ended up solving the bug, (now pieces slide off the board correctly.) I was hoping to have the menu to select a game type done, people talking, and a hand drawn font. I was not going to have scoring, or losing conditions. But I plain ran out of time with all the bugs.
+
+I would like to dedicate each element to my friends.
+Wind: This is dedicated to my divine union, I hear you whisper, like you are just outside, on cold long nights I can hear you all around me.
+Water: To George, you are a great friend, you are strong and powerful, but when viewed on a calm day, you are peaceful and serene. Never lose that.
+Earth: To Sally, you have been such a rock to me over the last few years, and have always tried to inspire me to explore life and learn to love myself for who I am.
+Fire: To Geovani, you have a lot of passion and fire in your Chinese heart
+Love: To Mary, you have shown me so much compassion, love and support lately, how could I not have dedicated it to you.
+
+I gave this a good run, yet again I fail, but at least I had a decent idea this time.

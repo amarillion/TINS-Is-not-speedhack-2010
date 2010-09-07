@@ -1,0 +1,98 @@
+[Level 0]
+Demon Rate=30
+Demon Speed=2.0
+Demon Fire Rate=100
+Arch-Demon Rate=0
+Arch-Demon Fire Rate=0
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 1]
+Demon Rate=35
+Demon Speed=2.1
+Demon Fire Rate=100
+Arch-Demon Rate=2
+Arch-Demon Fire Rate=10
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 2]
+Demon Rate=40
+Demon Speed=2.2
+Demon Fire Rate=100
+Arch-Demon Rate=4
+Arch-Demon Fire Rate=20
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 3]
+Demon Rate=45
+Demon Speed=2.3
+Demon Fire Rate=100
+Arch-Demon Rate=6
+Arch-Demon Fire Rate=20
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 4]
+Demon Rate=50
+Demon Speed=2.4
+Demon Fire Rate=100
+Arch-Demon Rate=8
+Arch-Demon Fire Rate=20
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 5]
+Demon Rate=55
+Demon Speed=2.5
+Demon Fire Rate=100
+Arch-Demon Rate=10
+Arch-Demon Fire Rate=20
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 6]
+Demon Rate=60
+Demon Speed=2.6
+Demon Fire Rate=100
+Arch-Demon Rate=12
+Arch-Demon Fire Rate=25
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 7]
+Demon Rate=65
+Demon Speed=2.7
+Demon Fire Rate=100
+Arch-Demon Rate=14
+Arch-Demon Fire Rate=25
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 8]
+Demon Rate=70
+Demon Speed=2.8
+Demon Fire Rate=100
+Arch-Demon Rate=16
+Arch-Demon Fire Rate=25
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 9]
+Demon Rate=80
+Demon Speed=3.0
+Demon Fire Rate=100
+Arch-Demon Rate=18
+Arch-Demon Fire Rate=25
+Fireball Rate = 0
+Nuke Rate = 0
+
+[Level 10]
+Demon Rate=0
+Demon Speed=3.0
+Demon Fire Rate=0
+Arch-Demon Rate=0
+Arch-Demon Fire Rate=40
+Fireball Rate = 0
+Nuke Rate = 0

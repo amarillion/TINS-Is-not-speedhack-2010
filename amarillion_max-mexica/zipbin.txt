@@ -1,0 +1,7 @@
+README.txt
+LICENSE.txt
+data/*.*
+src/*.cpp
+include/*.h
+mexica.exe
+*.dll

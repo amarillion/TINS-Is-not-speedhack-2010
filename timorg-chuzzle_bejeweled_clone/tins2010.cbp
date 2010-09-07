@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="tins2010" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin\tins2010" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-Wshadow" />
+		</Compiler>
+		<Linker>
+			<Add option="-lalleg" />
+		</Linker>
+		<Unit filename="bejeweled_board.cpp" />
+		<Unit filename="bejeweled_board.h" />
+		<Unit filename="board.cpp" />
+		<Unit filename="board.h" />
+		<Unit filename="chuzzle_board.cpp" />
+		<Unit filename="chuzzle_board.h" />
+		<Unit filename="counted_ptr.h" />
+		<Unit filename="cp_object_manager.cpp" />
+		<Unit filename="cp_object_manager.h" />
+		<Unit filename="data.cpp" />
+		<Unit filename="data.h" />
+		<Unit filename="direction.cpp" />
+		<Unit filename="direction.h" />
+		<Unit filename="elements.h" />
+		<Unit filename="grid_data.cpp" />
+		<Unit filename="grid_data.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="mouse_button.cpp" />
+		<Unit filename="mouse_button.h" />
+		<Unit filename="movement.cpp" />
+		<Unit filename="movement.h" />
+		<Unit filename="object_base.cpp" />
+		<Unit filename="object_base.h" />
+		<Unit filename="object_manager.cpp" />
+		<Unit filename="object_manager.h" />
+		<Unit filename="physics_tile.h" />
+		<Unit filename="position.cpp" />
+		<Unit filename="position.h" />
+		<Unit filename="scratch.txt" />
+		<Unit filename="tile.cpp" />
+		<Unit filename="tile.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,14 @@
+src/*.cpp
+include/*.h
+data/*.*
+makefile
+icon.ico
+icon.png
+icon.rc
+zip.pl
+zipsrc.txt
+zipbin.txt
+obj/unx/tempfile.txt
+obj/win/tempfile.txt
+LICENSE.txt
+README.txt

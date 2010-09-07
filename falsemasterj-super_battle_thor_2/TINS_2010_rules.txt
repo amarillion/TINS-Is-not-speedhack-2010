@@ -1,0 +1,203 @@
+# TINS 2010 Rules #
+
+## Additional rules ##
+And yes! here they finally are. The rule-o-matic has decided and this
+is the result;
+
+### Genre requirement ###
+
+#### There will be 1 genre rule ####
+
+genre rule #90  
+Deities & Demigods: The player character is a god, half-god, 
+angel or other divine being, doing the kinds of things gods do.
+
+Comments: For some sources of ideas, see this list of Mythology based
+video games. Note that there are lot's of different types of games in
+that list, from action games (god of war) to RTS (populous) to platform
+(kid icarus). However, note that the game is not just about devine beings,
+the player's character himself must be one.
+
+### Artistic requirements ###
+
+#### There will be 2 artistical rules ####
+
+artistical rule #132  
+Hand drawn. Feature hand-drawn or hand-painted graphics.
+You may use actual scanned drawings, or just simulate them.
+
+artistical rule #105  
+Use samples of human(-like) voice
+
+Comments: A few sources of inspiration for the Hand drawn rule:
+
+* a hand-drawn physics game
+* Drawn to life
+* Scribblenauts
+* Yoshi's Island 
+
+To satisfy the rule, you only need a single drawing. More is better
+of course, and will give you a higher score. A possible alternative
+interpretation of this rule is that the player should draw graphics
+during the game. This interpretation is a correct one, but it is entirely
+optional.
+
+As for the human voice sample, you can make your own recordings, use
+samples downloaded from the internet, or even synthesize them. The
+voice may contain important instructions to the player, or it may be as
+meaningful as Simlish.
+
+Warning: Do pay careful attention to the size limit! Sound samples add
+up the kilobytes very quickly
+
+### Technical requirements ###
+
+#### There will be 2 technical rules ####
+
+technical rule #69  
+polymorphism: create two pieces of code that implement the same interface,
+and let the user select one.
+
+technical rule #34  
+View Source: The game must display a piece
+of it's own source code somewhere.
+
+Comments:
+
+The first technical rule refers to polymorphism in object-oriented
+programming. Polymorphism is a very common technique that is used
+by almost any program to some extent, for example a game with two
+different enemies almost certainly uses polymorphism to encode their
+different behaviours. However, to satisfy the rule it's important that
+the different implementations are selected by the user, through a menu
+or a command line option.
+
+There are a huge number of possibilities:
+
+* Two different rendering methods
+* Two different landscape generators
+* Two different AI's
+* Two different themes 
+
+Note that this rule does not imply that you have to use classes or
+that you have to use C++, it's also possible to use two functions that
+implement the same function prototype. For a maximum score, make it so
+that the polymorphic code has a major impact on gameplay.
+
+As for the second technical rule: generations of web programmers are
+growing up by copy-pasting code from existing website. The fact that there
+is a vast number of sites out there where you can just press Ctrl+U to
+see how it works is a tremendous help to newbie developers.
+
+In principle, this rule is very easy to satisfy, you just need to
+display a few lines. To go the extra mile, do something fun or useful
+with the code.
+
+### bonus ###
+
+#### There will be no bonus rules ####
+
+Comments: No bonus rules. Too bad, better luck next time. 
+
+--------------------------------------------------------------------------
+## Standard rules ##
+
+### time. ###
+The competition is from Friday 3 September 2010, 12:00 GMT to Monday 6
+September 2010, 12:00 GMT. You are not allowed to write code for your
+entry before or after these times. All entries must be submitted before
+Monday 6 September 2010, 12:00 GMT to an address that will be provided
+later (if you know in advance that you won't have an internet connection
+at that time, perhaps because you have internet at work and not at home,
+in that case you can get an exemption for this deadline. Please let me
+know in advance if this is the case for you).
+
+### size. ###
+the entry may not be larger than 400.0 KB, zipped.
+
+### source. ###
+the complete source code must be included with the entry. You don't have
+to include the source of allegro add-ons, as long as they are easily found
+on the web. (For a list of common add-on libraries, see the allegro.cc
+resource directory <http://www.allegro.cc/resource/index.php?id=1>). And
+of course you don't have to include the source to Allegro.
+
+### code reuse. ###
+Because reusing code is an essential hacking skill, You can re-use any
+code that:
+
+    1. You are legally able to do so (your own, GPLed, giftware, public
+    domain or any other Free Software licence) *AND*
+
+    2. Was available and easily accessible online at least *two weeks*
+    before the start of the competition This means that until two weeks
+    before the start of the competition you may still upload your own
+    code (e.g. initialization code, utility classes) that could come in
+    handy during the competition.
+
+Also, you are obliged to make clear what parts of your entry you re-used,
+preferably in a readme.txt that accompanies your entry.
+
+### Allegro & other libs. ###
+The game may make use of Allegro add-on libs or other libs as long as
+they are portable. The game must make use of Allegro.
+
+### programming language. ###
+you may use any programming language that has allegro
+bindings <http://wiki.allegro.cc/index.php?title=Allegro_languages>.
+
+### portability. ###
+Your entry should be trivial to port to any platform that Allegro
+supports (that means including Windows, Linux and Mac OS X). This means
+that you are not allowed to use any OS-specific features in your game
+(Essentially you should aim to make your entry compile out of the box
+on all platforms, but this can be hard to realize for people who don't
+have access to those platforms).
+
+### additional rules. ###
+There will be additional rules that are announced at Friday 3 September
+2010, 12:00. These rules come in four categories: Genre Requirements,
+Technical requirements, Artistic requirements and Bonus rules.
+
+### reviewing and deciding a winner. ###
+To ensure that each entry will be reviewed, each entrant will be assigned
+two entries to review and six entries to grade. Awards will be assigned
+based on these grades. There will be awards in the following categories:
+
+    * Best overall
+    * Best implementation of technical requirements
+    * Best implementation of artistical requirements
+    * Best implementation of genre requirements
+
+--------------------------------------------------------------------------
+## Other Important Info ##
+You can assume that everyone will have a copy of the latest stable
+Allegro library (standard installation) installed. You do not need to
+supply one. You should consider uploading binaries for people who have
+problems compiling the source onto your own website. I will be checking
+that the binary and source match up, so adding enhancements to the
+'competition binary' is not permitted..
+
+If source code is reused from legal sources (your own, GPLed, public
+domain) you should declare this and what changes have been made, so that
+your work can be properly assessed for the voting.
+
+People should keep a informative and interesting account of their
+development through the competition. This can be sent after the
+competition for those people with no Email over the weekend. This does
+not affect your space requirement.
+
+There will be a mailinglist for participants, where you can easily drop a
+message to all participants. The mailinglist will be closed a few months
+after the competition. Experience has taught that there are always last
+minute bug fixes after the competition, this mailinglist will be the
+place to announce them.
+
+As always, a web-based speedhack log facility will be available during
+the competition.
+
+You can make use of all information sources, mailing lists as you see
+fit. This is not an exam! :-)
+
+Any other questions? Send mail to me and keep working! I'll get back to
+you as soon as I can.. :-)

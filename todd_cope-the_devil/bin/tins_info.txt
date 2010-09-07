@@ -1,0 +1,61 @@
+The Devil TINS 2010 Info
+------------------------
+
+The Devil is built using Allegro 4.9.21 and uses the audio, audio codec, image
+I/O, primitives, and font add-ons.
+
+Reused code: T^3 Framework v0.88 (all the stuff in the "t3f" directory)
+
+             makefiles (these were copied from another project)
+             
+             Not code but the font file ("data/default_font.png") came from
+             another project.
+             
+             The included config file ("allegro.cfg") was copied from another
+             project.
+
+
+Building from Source
+--------------------
+
+	Linux
+	-----
+	
+	From the "src" directory type:
+	
+		make -f makefile.linux
+
+	The binary will be produced in the "bin" directory and should be run from
+	there.
+	
+	Windows
+	-------
+	
+	Windows binaries are provided but if you want to build under Windows a
+	makefile is included. From the "src" diectory type:
+	
+		make -f makefile.mingw
+	
+	The binary will be produced in the "bin" directory and should be run from
+	there.
+	
+
+	Mac OS X
+	--------
+	
+	To build on Mac OS X you will have to modify one of the makefiles to provide
+	the Mac-specific options that pertain to your installed development
+	environment.
+
+
+Notes for Reviewers
+-------------------
+
+The game is pretty hard-core so you might have trouble finishing it. There is an
+easy mode but some players might even find that too hard. It is important that
+you finish the game, though, to see how I've met the requirements so I've
+provided a few command-line options that will help you.
+
+	-goobers:   Start the game with 99 lives.
+	-firepower: Start the game with triple shot.
+	-finale:    Start the game on the last level.

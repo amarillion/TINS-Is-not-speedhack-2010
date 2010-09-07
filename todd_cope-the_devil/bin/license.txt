@@ -1,0 +1,15 @@
+The Devil v1.0 End-User License Agreement
+-----------------------------------------
+
+The Devil is (c)2010 T³ Software. The Devil is provided as-is and without
+warranty.You may distribute The Devil freely (without charge) provided you
+include this license with any redistributed package. Any modified version
+created using the source code must also include this license. If you would like
+to distribute The Devil as part of a compilation or some other form that is
+profitable monetarily you must contact the author for permission before doing
+so.
+
+T³ Software makes no gaurantees regarding the The Devil software. We take no
+responsibility for any damages the software may cause to you or your equipment,
+though it has not been known to cause any problems. Please contact us if you
+have any trouble with the software and we'll see if we can resolve the problem.

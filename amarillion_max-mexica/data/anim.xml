@@ -1,0 +1,138 @@
+<gamedata>
+	<anim id='choco' dx='48' dy='28'>
+		<frame rle='Choco' hotx = '-8' hoty = '-4'/>
+	</anim>
+	<anim id='corn' dx='28' dy='48'>
+		<frame rle='Corn' hotx = '-8' hoty = '-8'/>
+	</anim>
+	<anim id='tortilla' dx='48' dy='36'>
+		<frame rle='Tortilla' hotx = '-8' hoty = '-8'/>
+	</anim>
+	<anim id='heart' dx='36' dy='36'>
+		<frame rle='Heart' hotx = '-12' hoty = '-12'/>
+	</anim>
+	<anim id='hs' dx='48' dy='20'>
+		<frame rle='HS' hotx = '-8' hoty = '-8'/>
+	</anim>
+	<anim id='fole' dx='140' dy='110'>
+		<frame rle='Fole' hotx = '-8' hoty = '-8'/>
+	</anim>
+	<anim id='raul' dx='130' dy='130'>
+		<state>
+			<frame rle='Raul' hotx = '-8' hoty = '-16'/>
+		</state>
+		<state>
+			<frame rle='Raul' hotx = '-8' hoty = '-16'>
+				<lit r="255" g="0" b="0" alpha="128"/>
+			</frame>
+		</state>
+		<state>
+			<frame rle='Raul' hotx = '-8' hoty = '-16' time='100'/>
+			<frame rle='Raul' hotx = '-8' hoty = '-16' time='100'>
+				<lit r="255" g="255" b="255" alpha="255"/>
+			</frame>
+		</state>
+	</anim>
+	<anim id='offering' dx='80' dy='48'>
+		<frame rle='Offering' hotx = '-8' hoty = '-16'/>
+	</anim>
+	<anim id='pepper1' dx='48' dy='24'>
+		<frame rle='pepper1' hotx = '-16' hoty = '-8'/>
+	</anim>
+	<anim id='pepper2' dx='48' dy='24'>
+		<frame rle='pepper2' hotx = '-16' hoty = '-8'/>
+	</anim>
+	<anim id='pepper3' dx='48' dy='24'>
+		<frame rle='pepper3' hotx = '-16' hoty = '-8'/>
+	</anim>
+	<level 
+		pepperType="0"
+		pepperNum="2"
+		pepperMsecMin="1000"
+		pepperMsecDev="1000"
+		foodType="0"
+		foodMsecMin="3000"
+		foodMsecDev="5000"
+		foodScore="100" />
+	<level 
+		pepperType="2"
+		pepperNum="3"
+		pepperMsecMin="800"
+		pepperMsecDev="1000"
+		foodType="0"
+		foodMsecMin="3000"
+		foodMsecDev="7000"
+		foodScore="200" />
+	<level 
+		pepperType="1"
+		pepperNum="4"
+		pepperMsecMin="800"
+		pepperMsecDev="800"
+		foodType="0"
+		foodMsecMin="3500"
+		foodMsecDev="6000"
+		foodScore="250" />
+	<level 
+		pepperType="3"
+		pepperNum="5"
+		pepperMsecMin="800"
+		pepperMsecDev="700"
+		foodType="0"
+		foodMsecMin="3500"
+		foodMsecDev="7000"
+		foodScore="300" />
+	<level 
+		pepperType="4"
+		pepperNum="6"
+		pepperMsecMin="700"
+		pepperMsecDev="700"
+		foodType="0"
+		foodMsecMin="3500"
+		foodMsecDev="5000"
+		foodScore="350" />
+	<level 
+		pepperType="0"
+		pepperNum="6"
+		pepperMsecMin="700"
+		pepperMsecDev="600"
+		foodType="0"
+		foodMsecMin="4000"
+		foodMsecDev="6000"
+		foodScore="350" />
+	<level 
+		pepperType="2"
+		pepperNum="7"
+		pepperMsecMin="600"
+		pepperMsecDev="600"
+		foodType="0"
+		foodMsecMin="2000"
+		foodMsecDev="3000"
+		foodScore="400" />
+	<level 
+		pepperType="1"
+		pepperNum="8"
+		pepperMsecMin="400"
+		pepperMsecDev="600"
+		foodType="0"
+		foodMsecMin="3000"
+		foodMsecDev="5000"
+		foodScore="450" />
+	<level 
+		pepperType="3"
+		pepperNum="8"
+		pepperMsecMin="300"
+		pepperMsecDev="600"
+		foodType="0"
+		foodMsecMin="4000"
+		foodMsecDev="5000"
+		foodScore="500" />
+	<level 
+		pepperType="4"
+		pepperNum="10"
+		pepperMsecMin="200"
+		pepperMsecDev="500"
+		foodType="0"
+		foodMsecMin="5000"
+		foodMsecDev="7000"
+		foodScore="600" />
+</gamedata>
