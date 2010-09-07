@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
 
     debug("Iniciando.");
     srand(time(NULL));
-    set_uformat(U_UTF8);
+    set_uformat(U_ASCII);
     allegro_init();
     install_keyboard();
     install_mouse();

@@ -1,7 +1,7 @@
                               WELCOME TO THE SOURCE GOD
 
 By: Victor Williams Stafusa da Silva
-and Andre Luiz Pereira Alvares
+and André Luiz Pereira Álvares
 
     You are the hand-programmer god of the code. Your task is to keep the source-
     code safe against bugs. When you are light blue, your normal form, you may
