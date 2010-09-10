@@ -6,6 +6,7 @@
 #include "game.h"
 
 MenuInicial::MenuInicial() {
+    this->j = NULL;
     this->tela = new Tela();
     this->fontcolor = makecol(0, 0, 255);
     this->srccode = get_source_by_line("readme.txt", 0);

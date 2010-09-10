@@ -220,8 +220,12 @@ Jogo::~Jogo() {
 }
 
 void Jogo::garbage_collect() {
+    if (mortos.empty()) return;
+
     std::list<Personagem*>::iterator it_mortos;
     for (it_mortos = mortos.begin(); it_mortos != mortos.end(); it_mortos++) {
+        personagens.remove(*it_mortos);
+        matar_no_fim_da_fase.remove(*it_mortos);
         delete *it_mortos;
     }
     mortos.clear();
@@ -231,10 +235,8 @@ void Jogo::full_garbage_collect() {
     std::list<Personagem*>::iterator it_mortos;
     for (it_mortos = matar_no_fim_da_fase.begin(); it_mortos != matar_no_fim_da_fase.end(); it_mortos++) {
         Personagem *p = *it_mortos;
-        personagens.remove(p);
         mortos.push_front(p);
     }
-    matar_no_fim_da_fase.clear();
     garbage_collect();
 }
 
@@ -380,8 +382,6 @@ void Jogo::remove(Personagem *p) {
     if (p->inimigo()) inimigos_vivos--;
     if (p->amigo()) amigos_vivos--;
 
-    personagens.remove(p);
-    matar_no_fim_da_fase.remove(p);
     mortos.push_front(p);
 }
 

@@ -366,7 +366,7 @@ class FiltroMataMonstro : public virtual Filtro {
 
 class PathFindFiltro {
   public:
-    virtual void processa(Personagem *p, VizinhancaGrid *v);
+    virtual void processa(Personagem *p, VizinhancaGrid *v) = 0;
 };
 
 class Jogo : public virtual Ambiente {

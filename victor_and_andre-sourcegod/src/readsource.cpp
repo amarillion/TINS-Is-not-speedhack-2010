@@ -7,7 +7,7 @@
 #include "debug.h"
 
 std::list<std::list<Character*>*> *get_source_by_line(const char *file, const int linhainicial) {
-    char str[50];
+    char str[100];
     sprintf(str, "Carregando fonte %s, linha inicial %d", file, linhainicial);
     debug(str);
 
