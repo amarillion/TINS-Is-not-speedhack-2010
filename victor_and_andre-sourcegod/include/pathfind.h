@@ -80,8 +80,8 @@ class VizinhancaGrid : public virtual Vizinhanca {
     int get_vizinho(int vertice, int indice_vizinho);
     int peso_aresta(int vertice, int indice_vizinho);
     int get_num_vertices();
-    float h(int vertice) = 0;
-    std::map<int, float> *get_destinos() = 0;
+    float h(int vertice);
+    std::map<int, float> *get_destinos();
 
     void set_obstaculo(int vertice);
     bool is_obstaculo(int vertice);
