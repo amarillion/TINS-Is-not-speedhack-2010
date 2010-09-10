@@ -76,7 +76,7 @@ private:
 
 	void privPlayerCharacterLogic();
 	bool privIsPlayerCharacterInActionQueue(PlayerCharacter* aPlayerCharacter);
-	void Battle::privCleanUpDeadEnemies();
+	void privCleanUpDeadEnemies();
 
 	Gui* myGui;
 	std::vector<Entity *> myOtherEntities;
