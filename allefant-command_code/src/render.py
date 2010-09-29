@@ -59,7 +59,7 @@ def text(s, x, y, c, size, timepos, speed):
     if size not in global_glyphs:
         global_glyphs[size] = glyphs.get_glyphs(size)
     g = global_glyphs[size]
-    
+
     s = s.lower()
     pos = 0
     t = 0
@@ -238,7 +238,7 @@ def redraw_game():
 
 def redraw_menu():
     t = game.ticks
-    
+
     c1 = al_map_rgba_f(0, 0, 0, 0.5)
     c2 = al_map_rgba_f(0.5, 0, 0, 0.5)
     
@@ -247,8 +247,9 @@ def redraw_menu():
         menutext = "New"
     else:
         menutext = "New (%d)" % Base.level_select
+
     done, l, s = text(menutext, 210, 250, color, 5, t, 4)
-    
+
     color = c2 if game.menu == 1 else c1
     done, l, s = text("Continue", 210, 300, color, 5, t, 4)
     

@@ -7,15 +7,12 @@ from ctypes.util import *
 # distributing.
 _dlls = []
 def _add_dll(name):
-    if os.name == "nt":
-        release = "-4.9"
-    else:
-        release = ""
+    release = "-debug"
     
     # Under Windows, DLLs are found in the current directory, so this
     # would be an easy way to keep all your DLLs in a sub-folder.
     
-    os.chdir("dlls")
+    # os.chdir("dlls")
 
     path = find_library(name + release)
     if not path:
@@ -27,19 +24,24 @@ def _add_dll(name):
             if platform.mac_ver()[0]:
                 path = name + release + ".dylib"
             else:
-                path = "lib" + name + release + ".so.4.9"
+                path = "lib" + name + release + ".so"
         else:
             sys.stderr.write("Cannot find library " + name + "\n")
+ 
+        # In most cases, you actually don't want the above and instead
+        # use the exact filename within your game distribution, possibly
+        # even within a .zip file.
+        # if not os.path.exists(path):
+        #     path = "dlls/" + path
 
     try:
         # RTLD_GLOBAL is required under OSX for some reason (?)
         _dlls.append(CDLL(path, RTLD_GLOBAL))
-    except OSError as e:
-        print(e)
+    except OSError:
         # No need to fail here, might just be one of the addons.
-        print("no " + path)
+        pass
       
-    os.chdir("..")
+   # os.chdir("..")
 
 _add_dll("allegro")
 _add_dll("allegro_acodec")
@@ -63,7 +65,7 @@ def _dll(func, ret, params):
             f.argtypes = params
             return f
         except AttributeError: pass
-    #sys.stderr.write("Cannot find function " + func + "\n")
+    sys.stderr.write("Cannot find function " + func + "\n")
     return lambda *args: None
 
 ALLEGRO_AUDIO_DEPTH = c_int
@@ -96,6 +98,8 @@ class ALLEGRO_BITMAP(Structure): pass
 class ALLEGRO_COLOR(Structure): pass
 class ALLEGRO_COND(Structure): pass
 class ALLEGRO_CONFIG(Structure): pass
+class ALLEGRO_CONFIG_ENTRY(Structure): pass
+class ALLEGRO_CONFIG_SECTION(Structure): pass
 class ALLEGRO_DISPLAY(Structure): pass
 class ALLEGRO_DISPLAY_EVENT(Structure): pass
 class ALLEGRO_DISPLAY_MODE(Structure): pass
@@ -261,6 +265,7 @@ ALLEGRO_LOCKED_REGION._fields_ = [
     ("data", c_void_p),
     ("format", c_int),
     ("pitch", c_int),
+    ("pixel_size", c_int),
     ]
 ALLEGRO_MEMORY_INTERFACE._fields_ = [
     ("mi_malloc", c_void_p),
@@ -655,44 +660,46 @@ ALLEGRO_OGL_EXT_LIST._fields_ = [
     ("ALLEGRO_GL_AMD_shader_stencil_export", c_int),
     ("ALLEGRO_GL_AMD_seamless_cubemap_per_texture", c_int),
     ("ALLEGRO_GL_AMD_conservative_depth", c_int),
-    ("ALLEGRO_WGL_ARB_buffer_region", c_int),
-    ("ALLEGRO_WGL_ARB_multisample", c_int),
-    ("ALLEGRO_WGL_ARB_extensions_string", c_int),
-    ("ALLEGRO_WGL_ARB_pixel_format", c_int),
-    ("ALLEGRO_WGL_ARB_make_current_read", c_int),
-    ("ALLEGRO_WGL_ARB_pbuffer", c_int),
-    ("ALLEGRO_WGL_ARB_render_texture", c_int),
-    ("ALLEGRO_WGL_ARB_pixel_format_float", c_int),
-    ("ALLEGRO_WGL_EXT_display_color_table", c_int),
-    ("ALLEGRO_WGL_EXT_extensions_string", c_int),
-    ("ALLEGRO_WGL_EXT_make_current_read", c_int),
-    ("ALLEGRO_WGL_EXT_pixel_format", c_int),
-    ("ALLEGRO_WGL_EXT_pbuffer", c_int),
-    ("ALLEGRO_WGL_EXT_swap_control", c_int),
-    ("ALLEGRO_WGL_EXT_depth_float", c_int),
-    ("ALLEGRO_WGL_EXT_multisample", c_int),
-    ("ALLEGRO_WGL_OML_sync_control", c_int),
-    ("ALLEGRO_WGL_I3D_digital_video_control", c_int),
-    ("ALLEGRO_WGL_I3D_gamma", c_int),
-    ("ALLEGRO_WGL_I3D_genlock", c_int),
-    ("ALLEGRO_WGL_I3D_image_buffer", c_int),
-    ("ALLEGRO_WGL_I3D_swap_frame_lock", c_int),
-    ("ALLEGRO_WGL_I3D_swap_frame_usage", c_int),
-    ("ALLEGRO_WGL_NV_render_depth_texture", c_int),
-    ("ALLEGRO_WGL_NV_render_texture_rectangle", c_int),
-    ("ALLEGRO_WGL_ATI_pixel_format_float", c_int),
-    ("ALLEGRO_WGL_EXT_framebuffer_sRGB", c_int),
-    ("ALLEGRO_WGL_EXT_pixel_format_packed_float", c_int),
-    ("ALLEGRO_WGL_WIN_swap_hint", c_int),
-    ("ALLEGRO_WGL_3DL_stereo_control", c_int),
-    ("ALLEGRO_WGL_NV_swap_group", c_int),
-    ("ALLEGRO_WGL_NV_gpu_affinity", c_int),
-    ("ALLEGRO_WGL_NV_video_out", c_int),
-    ("ALLEGRO_WGL_NV_present_video", c_int),
-    ("ALLEGRO_WGL_ARB_create_context", c_int),
-    ("ALLEGRO_WGL_AMD_gpu_association", c_int),
-    ("ALLEGRO_WGL_NV_copy_image", c_int),
-    ("ALLEGRO_WGL_NV_video_capture", c_int),
+    ("ALLEGRO_GLX_ARB_get_proc_address", c_int),
+    ("ALLEGRO_GLX_ARB_multisample", c_int),
+    ("ALLEGRO_GLX_ARB_fbconfig_float", c_int),
+    ("ALLEGRO_GLX_ARB_create_context", c_int),
+    ("ALLEGRO_GLX_ARB_vertex_buffer_object", c_int),
+    ("ALLEGRO_GLX_EXT_visual_info", c_int),
+    ("ALLEGRO_GLX_SGI_swap_control", c_int),
+    ("ALLEGRO_GLX_SGI_video_sync", c_int),
+    ("ALLEGRO_GLX_SGI_make_current_read", c_int),
+    ("ALLEGRO_GLX_SGIX_video_source", c_int),
+    ("ALLEGRO_GLX_EXT_visual_rating", c_int),
+    ("ALLEGRO_GLX_EXT_import_context", c_int),
+    ("ALLEGRO_GLX_SGIX_fbconfig", c_int),
+    ("ALLEGRO_GLX_SGIX_pbuffer", c_int),
+    ("ALLEGRO_GLX_SGI_cushion", c_int),
+    ("ALLEGRO_GLX_SGIX_video_resize", c_int),
+    ("ALLEGRO_GLX_SGIX_dm_buffer", c_int),
+    ("ALLEGRO_GLX_SGIX_swap_group", c_int),
+    ("ALLEGRO_GLX_SGIX_swap_barrier", c_int),
+    ("ALLEGRO_GLX_SGIS_color_range", c_int),
+    ("ALLEGRO_GLX_SGIS_blended_overlay", c_int),
+    ("ALLEGRO_GLX_SUN_get_transparent_index", c_int),
+    ("ALLEGRO_GLX_MESA_copy_sub_buffer", c_int),
+    ("ALLEGRO_GLX_MESA_pixmap_colormap", c_int),
+    ("ALLEGRO_GLX_MESA_release_buffers", c_int),
+    ("ALLEGRO_GLX_MESA_set_3dfx_mode", c_int),
+    ("ALLEGRO_GLX_SGIX_visual_select_group", c_int),
+    ("ALLEGRO_GLX_OML_swap_method", c_int),
+    ("ALLEGRO_GLX_OML_sync_control", c_int),
+    ("ALLEGRO_GLX_SGIX_hyperpipe", c_int),
+    ("ALLEGRO_GLX_MESA_agp_offset", c_int),
+    ("ALLEGRO_GLX_EXT_framebuffer_sRGB", c_int),
+    ("ALLEGRO_GLX_EXT_packed_float", c_int),
+    ("ALLEGRO_GLX_EXT_texture_from_pixmap", c_int),
+    ("ALLEGRO_GLX_NV_video_output", c_int),
+    ("ALLEGRO_GLX_NV_swap_group", c_int),
+    ("ALLEGRO_GLX_NV_video_capture", c_int),
+    ("ALLEGRO_GLX_EXT_swap_control", c_int),
+    ("ALLEGRO_GLX_NV_copy_image", c_int),
+    ("ALLEGRO_GLX_INTEL_swap_event", c_int),
     ]
 ALLEGRO_SAMPLE_ID._fields_ = [
     ("_index", c_int),
@@ -822,7 +829,6 @@ al_create_vertex_decl = _dll("al_create_vertex_decl", c_void_p, [c_void_p, c_int
 al_create_voice = _dll("al_create_voice", c_void_p, [c_uint, c_int, c_int])
 al_cstr = _dll("al_cstr", c_void_p, [c_void_p])
 al_cstr_dup = _dll("al_cstr_dup", c_void_p, [c_void_p])
-al_current_time = _dll("al_current_time", c_double, [])
 al_destroy_audio_stream = _dll("al_destroy_audio_stream", c_int, [c_void_p])
 al_destroy_bitmap = _dll("al_destroy_bitmap", c_int, [c_void_p])
 al_destroy_cond = _dll("al_destroy_cond", c_int, [c_void_p])
@@ -886,7 +892,6 @@ al_draw_ustr = _dll("al_draw_ustr", c_int, [c_void_p, ALLEGRO_COLOR, c_float, c_
 al_drop_next_event = _dll("al_drop_next_event", c_bool, [c_void_p])
 al_drop_path_tail = _dll("al_drop_path_tail", c_int, [c_void_p])
 al_emit_user_event = _dll("al_emit_user_event", c_bool, [c_void_p, c_void_p, c_void_p])
-al_event_queue_is_empty = _dll("al_event_queue_is_empty", c_bool, [c_void_p])
 al_fclearerr = _dll("al_fclearerr", c_int, [c_void_p])
 al_fclose = _dll("al_fclose", c_int, [c_void_p])
 al_feof = _dll("al_feof", c_bool, [c_void_p])
@@ -926,8 +931,6 @@ al_fread32be = _dll("al_fread32be", c_int, [c_void_p])
 al_fread32le = _dll("al_fread32le", c_int, [c_void_p])
 al_free_with_context = _dll("al_free_with_context", c_int, [c_void_p, c_int, c_void_p, c_void_p])
 al_fs_entry_exists = _dll("al_fs_entry_exists", c_bool, [c_void_p])
-al_fs_entry_is_directory = _dll("al_fs_entry_is_directory", c_bool, [c_void_p])
-al_fs_entry_is_file = _dll("al_fs_entry_is_file", c_bool, [c_void_p])
 al_fseek = _dll("al_fseek", c_bool, [c_void_p, c_long, c_int])
 al_fsize = _dll("al_fsize", c_long, [c_void_p])
 al_ftell = _dll("al_ftell", c_long, [c_void_p])
@@ -1090,9 +1093,11 @@ al_get_target_bitmap = _dll("al_get_target_bitmap", c_void_p, [])
 al_get_text_dimensions = _dll("al_get_text_dimensions", c_int, [c_void_p, c_void_p, c_void_p, c_void_p, c_void_p, c_void_p])
 al_get_text_width = _dll("al_get_text_width", c_int, [c_void_p, c_void_p])
 al_get_thread_should_stop = _dll("al_get_thread_should_stop", c_bool, [c_void_p])
+al_get_time = _dll("al_get_time", c_double, [])
 al_get_timer_count = _dll("al_get_timer_count", c_long, [c_void_p])
 al_get_timer_event_source = _dll("al_get_timer_event_source", c_void_p, [c_void_p])
 al_get_timer_speed = _dll("al_get_timer_speed", c_double, [c_void_p])
+al_get_timer_started = _dll("al_get_timer_started", c_bool, [c_void_p])
 al_get_ustr_dimensions = _dll("al_get_ustr_dimensions", c_int, [c_void_p, c_void_p, c_void_p, c_void_p, c_void_p, c_void_p])
 al_get_ustr_width = _dll("al_get_ustr_width", c_int, [c_void_p, c_void_p])
 al_get_voice_channels = _dll("al_get_voice_channels", c_int, [c_void_p])
@@ -1102,6 +1107,7 @@ al_get_voice_playing = _dll("al_get_voice_playing", c_bool, [c_void_p])
 al_get_voice_position = _dll("al_get_voice_position", c_uint, [c_void_p])
 al_get_window_position = _dll("al_get_window_position", c_int, [c_void_p, c_void_p, c_void_p])
 al_grab_font_from_bitmap = _dll("al_grab_font_from_bitmap", c_void_p, [c_void_p, c_int, c_void_p])
+al_have_opengl_extension = _dll("al_have_opengl_extension", c_int, [c_void_p])
 al_hide_mouse_cursor = _dll("al_hide_mouse_cursor", c_bool, [c_void_p])
 al_hold_bitmap_drawing = _dll("al_hold_bitmap_drawing", c_int, [c_bool])
 al_identity_transform = _dll("al_identity_transform", c_int, [c_void_p])
@@ -1124,10 +1130,10 @@ al_is_audio_installed = _dll("al_is_audio_installed", c_bool, [])
 al_is_bitmap_drawing_held = _dll("al_is_bitmap_drawing_held", c_bool, [])
 al_is_bitmap_locked = _dll("al_is_bitmap_locked", c_bool, [c_void_p])
 al_is_compatible_bitmap = _dll("al_is_compatible_bitmap", c_bool, [c_void_p])
+al_is_event_queue_empty = _dll("al_is_event_queue_empty", c_bool, [c_void_p])
+al_is_joystick_installed = _dll("al_is_joystick_installed", c_bool, [])
 al_is_keyboard_installed = _dll("al_is_keyboard_installed", c_bool, [])
 al_is_mouse_installed = _dll("al_is_mouse_installed", c_bool, [])
-al_is_opengl_extension_supported = _dll("al_is_opengl_extension_supported", c_int, [c_void_p])
-al_is_path_present = _dll("al_is_path_present", c_bool, [c_void_p])
 al_is_sub_bitmap = _dll("al_is_sub_bitmap", c_bool, [c_void_p])
 al_itofix = _dll("al_itofix", c_int, [c_int])
 al_join_paths = _dll("al_join_paths", c_bool, [c_void_p, c_void_p])
@@ -1290,7 +1296,6 @@ al_stop_sample_instance = _dll("al_stop_sample_instance", c_bool, [c_void_p])
 al_stop_samples = _dll("al_stop_samples", c_int, [])
 al_stop_timer = _dll("al_stop_timer", c_int, [c_void_p])
 al_store_state = _dll("al_store_state", c_int, [c_void_p, c_int])
-al_timer_is_started = _dll("al_timer_is_started", c_bool, [c_void_p])
 al_toggle_display_flag = _dll("al_toggle_display_flag", c_bool, [c_void_p, c_int, c_bool])
 al_trace = _dll("al_trace", c_int, [c_void_p, c_void_p])
 al_transform_coordinates = _dll("al_transform_coordinates", c_int, [c_void_p, c_void_p, c_void_p])
@@ -1411,7 +1416,7 @@ ALLEGRO_CHANNEL_CONF_6_1 = 97
 ALLEGRO_CHANNEL_CONF_7_1 = 113
 ALLEGRO_COLOR_SIZE = 14
 ALLEGRO_COMPATIBLE_DISPLAY = 24
-ALLEGRO_DATE = 20100718
+ALLEGRO_DATE = 20100926
 ALLEGRO_DEPTH_SIZE = 15
 ALLEGRO_DEST_MINUS_SRC = 2
 ALLEGRO_DIRECT3D_INTERNAL = 8
@@ -1745,7 +1750,7 @@ ALLEGRO_VERTEX_CACHE_SIZE = 256
 ALLEGRO_VIDEO_BITMAP = 0
 ALLEGRO_VSYNC = 26
 ALLEGRO_WINDOWED = 1
-ALLEGRO_WIP_VERSION = 22
+ALLEGRO_WIP_VERSION = 23
 ALLEGRO_ZERO = 0
 _ALLEGRO_PLAYMODE_STREAM_ONCE = 259
 _ALLEGRO_PLAYMODE_STREAM_ONEDIR = 260

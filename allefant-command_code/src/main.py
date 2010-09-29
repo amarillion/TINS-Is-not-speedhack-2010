@@ -49,7 +49,6 @@ def update():
         mysha.tick()
 
 def main():
-
     w, h = 640, 480
     done = False
     need_redraw = True
@@ -144,7 +143,7 @@ def main():
     while not done:
         event = ALLEGRO_EVENT()
 
-        if need_redraw and al_event_queue_is_empty(queue):
+        if need_redraw and al_is_event_queue_empty(queue):
             al_clear_to_color(al_map_rgb_f(1, 1, 1))
             render.redraw()
             al_flip_display()
