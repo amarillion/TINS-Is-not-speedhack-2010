@@ -19,8 +19,8 @@ class Vizinhanca {
     virtual int get_vizinho(int vertice, int indice_vizinho) = 0;
     virtual int peso_aresta(int vertice, int indice_vizinho) = 0;
     virtual int get_num_vertices() = 0;
-    virtual float h(int vertice);
-    virtual std::map<int, float> *get_destinos();
+    virtual float h(int vertice) = 0;
+    virtual std::map<int, float> *get_destinos() = 0;
 };
 
 class PathFinder {
